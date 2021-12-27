@@ -1,0 +1,21 @@
+Package: L2E
+Title: Robust Structured Regression via the L2 Criterion
+Description: An implementation of a computational framework for performing robust structured regression with the L2 criterion from Chi and Chi (2021+).
+Version: 1.0
+Authors@R: c(
+    person("Jocelyn", "Chi", email="jocetchi@gmail.com", role=c("aut", "cre")),
+    person("Eric", "Chi", email="ecchi1105@gmail.com", role=c("aut"))
+    )
+Depends:
+    R (>= 3.0.2),
+    isotone,
+    cobs
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+URL: https://jocelynchi.com/l2e
+License: GPL (>= 2)
+LazyData: true
+RoxygenNote: 7.1.1
+Encoding: UTF-8

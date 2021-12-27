@@ -1,0 +1,26 @@
+authors:
+  Jocelyn Chi:
+    href: "https://jocelynchi.com"
+  Eric Chi:
+    href: "https://ericchi.com/"
+
+reference:
+- title: "L2E Examples"
+  desc: >
+    Examples of robust structured regression problems via the L2 criterion
+  contents: 
+  - l2e_regression
+  - l2e_regression_isotonic
+  - l2e_regression_convex
+- title: "Updating beta and tau"
+  desc: "Example functions for updating beta and tau for LTE multivariate, isotonic, and convex regression"
+  contents:
+  - update_beta_qr
+  - update_beta_isotonic
+  - update_beta_convex
+  - update_tau_R
+- title: "Example Data"
+  desc: "Example data for LTE multivariate regression in the paper"
+  contents:
+  - bank
+

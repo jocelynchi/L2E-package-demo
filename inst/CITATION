@@ -1,0 +1,11 @@
+citHeader("To cite L2E in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion",
+  author   = "Jocelyn T. Chi and Eric C. Chi",
+  journal  = "Journal of Computational and Graphical Statistics, In press.",
+  year     = "2021+",
+  url      = "https://arxiv.org/abs/2010.04133",
+  textVersion = paste("Chi, J. T. & Chi, E. C. (2021+). A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion. Journal of Computational and Graphical Statistics, In press.")
+)
