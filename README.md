@@ -30,7 +30,7 @@ A pdf of the accompanying journal manuscript for `L2E` can be found at [arXiv:21
   author = {Jocelyn T. Chi and Eric C. Chi},
   title = {A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion},
   journal = {Journal of Computational and Graphical Statistics, In press.},
-  year = {2021+},
+  year = {2022+},
   url = {https://arxiv.org/abs/2010.04133}
 }
 ```
