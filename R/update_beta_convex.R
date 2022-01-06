@@ -7,6 +7,7 @@
 #' @param tau Current estimate for tau
 #' @param max_iter Maximum number of iterations
 #' @param tol Relative tolerance
+#' @return Returns a list object containing the new estimate for beta (vector) and the number of iterations (scalar) the update step utilized
 #' @importFrom stats fitted
 #' @importFrom cobs conreg
 #' @export

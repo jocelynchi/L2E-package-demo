@@ -21,6 +21,9 @@ update_beta_qr(y, X, QRF, tau, b, max_iter = 100, tol = 1e-04)
 
 \item{tol}{Relative tolerance}
 }
+\value{
+Returns a list object containing the new estimate for beta (vector) and the number of iterations (scalar) the update step utilized
+}
 \description{
 \code{update_beta_qr} Function for updating beta in LTE multivariate regression via a QR solve
 }

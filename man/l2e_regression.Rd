@@ -19,6 +19,9 @@ l2e_regression(y, X, tau, b, max_iter = 100, tol = 1e-04)
 
 \item{tol}{Relative tolerance}
 }
+\value{
+Returns a list object containing the estimates for beta (vector) and tau (scalar)
+}
 \description{
 \code{l2e_regression} Performs L2E regression via inexact coordinate descent
 }

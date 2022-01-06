@@ -8,6 +8,7 @@
 #' @param b Initial vector of regression coefficients
 #' @param max_iter Maximum number of iterations
 #' @param tol Relative tolerance
+#' @return Returns a list object containing the estimates for beta (vector) and tau (scalar)
 #' @importFrom stats sd
 #' @export
 #' @examples

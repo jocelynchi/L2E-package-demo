@@ -7,6 +7,7 @@
 #' @param tau initial precision estimate
 #' @param max_iter maximum number of iterations
 #' @param tol relative tolerance
+#' @return Returns a list object containing the estimates for beta (vector) and tau (scalar)
 #' @importFrom stats sd
 #' @export
 #' @examples

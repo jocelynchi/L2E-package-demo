@@ -17,6 +17,9 @@ update_beta_convex(y, b, tau, max_iter = 100, tol = 1e-04)
 
 \item{tol}{Relative tolerance}
 }
+\value{
+Returns a list object containing the new estimate for beta (vector) and the number of iterations (scalar) the update step utilized
+}
 \description{
 \code{update_beta_convex} Function for updating beta in LTE convex regression
 }

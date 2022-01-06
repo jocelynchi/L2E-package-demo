@@ -17,6 +17,9 @@ l2e_regression_convex(y, b, tau, max_iter = 100, tol = 1e-04)
 
 \item{tol}{relative tolerance}
 }
+\value{
+Returns a list object containing the estimates for beta (vector) and tau (scalar)
+}
 \description{
 \code{l2e_regression_convex} Performs robust convex regrsesion using the L2 criterion
 }

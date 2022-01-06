@@ -7,6 +7,7 @@
 #' @param sd_y Standard deviation of y
 #' @param max_iter Maximum number of iterations
 #' @param tol Relative tolerance
+#' @return Returns a list object containing the new estimate for tau (scalar) and the number of iterations (scalar) the update step utilized
 #' @export
 update_tau_R <- function(r, tau, sd_y, max_iter=1e2, tol=1e-10) {
   tau_min <- as.numeric(1/sd_y)
