@@ -14,7 +14,7 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-URL: https://jocelynchi.com/l2e
+URL: https://github.com/jocelynchi/l2e-package-demo
 License: GPL (>= 2)
 LazyData: true
 RoxygenNote: 7.1.1

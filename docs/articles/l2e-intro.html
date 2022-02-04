@@ -59,7 +59,14 @@
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/jocelynchi/l2e-package-demo/">
+    <span class="fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -76,7 +83,7 @@
                         <h4 class="author">Jocelyn T. Chi and Eric C. Chi</h4>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/jocelynchi/l2e-package-demo/blob/master/vignettes/l2e-intro.Rmd"><code>vignettes/l2e-intro.Rmd</code></a></small>
       <div class="hidden name"><code>l2e-intro.Rmd</code></div>
 
     </div>
@@ -102,7 +109,7 @@ img{ background:none; border:none; box-shadow:none; }
 <a href="#multivariate-regression" class="anchor"></a>Multivariate Regression</h3>
 <p>The first example provides code to perform multivariate L<span class="math inline">\(_{2}\)</span>E regression with the Italian bank data from the paper. We begin by loading the bank data from the <code>L2E</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jocelynchi.com/l2e">L2E</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jocelynchi/l2e-package-demo">L2E</a></span><span class="op">)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="va">bank</span><span class="op">$</span><span class="va">y</span>
 <span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="va">bank</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">13</span><span class="op">]</span><span class="op">)</span>
 <span class="va">X0</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">as.matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span><span class="op">)</span>, <span class="va">X</span><span class="op">)</span><span class="op">)</span>

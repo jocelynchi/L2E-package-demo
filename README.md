@@ -23,15 +23,16 @@ We've included an introductory [demo](https://jocelynchi.github.io/L2E-package-d
 
 ## Citing L2E
 
-A pdf of the accompanying journal manuscript for `L2E` can be found at [arXiv:2105.03228](https://arxiv.org/abs/2010.04133).  To cite the `L2E` framework, please use the following BibTeX entry.
+The accompanying journal manuscript for `L2E` can be found at [arXiv:2105.03228](https://arxiv.org/abs/2010.04133) and at the [Journal of Computational and Graphical Statistics](https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts).  To cite the `L2E` framework, please use the following BibTeX entry.
 
 ```
 @article{l2e,
   author = {Jocelyn T. Chi and Eric C. Chi},
   title = {A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion},
   journal = {Journal of Computational and Graphical Statistics, In press.},
-  year = {2022+},
-  url = {https://arxiv.org/abs/2010.04133}
+  year = {2022},
+  url = {https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts},
+  doi = {10.1080/10618600.2022.2035232},
 }
 ```
 
