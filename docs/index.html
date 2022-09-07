@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Robust Structured Regression via the L2 Criterion">
-<meta property="og:description" content="An implementation of a computational framework for performing robust structured regression with the L2 criterion from Chi and Chi (2021+).">
+<meta property="og:description" content="An implementation of a computational framework for performing robust structured regression with the L2 criterion 
+             from Chi and Chi (2021+). Improvements using the majorization-minimization (MM) principle from Liu, Chi, and 
+             Lange (2022+) added in Version 2.0.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -31,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">L2E</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0</span>
       </span>
     </div>
 
@@ -54,19 +56,12 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/l2e-intro.html">Introduction to the L2E Package</a>
+      <a href="articles/l2e-intro.html">Introduction to the L2E Package (version 2.0)</a>
     </li>
   </ul>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/jocelynchi/l2e-package-demo/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -80,13 +75,22 @@
   <div class="contents col-md-9">
 <div id="computational-framework-for-l_2e-structured-regression-problems" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#computational-framework-for-l_2e-structured-regression-problems" class="anchor"></a>Computational Framework for L<span class="math inline"><sub>2</sub></span>E Structured Regression Problems</h1></div>
-<p>We introduce a user-friendly computational framework for implementing robust versions of a wide variety of structured regression methods with the L<span class="math inline"><sub>2</sub></span> criterion. In addition to introducing an algorithm for performing L<span class="math inline"><sub>2</sub></span>E regression, our framework enables robust regression with the L<span class="math inline"><sub>2</sub></span> criterion for additional structural constraints, works without requiring complex tuning procedures on the precision parameter, can be used to identify heterogeneous subpopulations, and can incorporate readily available non-robust structured regression solvers. We provide convergence guarantees for the framework and demonstrate its flexibility with some examples. Supplementary materials for this article are available online.</p>
+<a href="#computational-framework-for-l_2e-structured-regression-problems" class="anchor"></a>Computational Framework for L<span class="math inline"><sub>2</sub></span>E Structured Regression
+Problems</h1></div>
+<p>The <code>L2E</code> package (version 2.0) implements the
+computational framework for L<span class="math inline"><sub>2</sub></span>E regression in Liu, Chi, and
+Lange (2022+), which was built on the previous work in Chi and Chi
+(2022). Both works employ the block coordinate descent strategy to solve
+a nonconvex optimization problem but utilize different methods for the
+inner block descent updates. We refer to the method in Liu, Chi, and
+Lange (2022+) as “MM” and the one in Chi and Chi (2022) as “PG” in our
+package. This package provides code to replicate some examples
+illustrating the usage of the frameworks in both manuscripts.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest stable version from CRAN:</p>
-<pre class="{r}"><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages('L2E-package-demo')</a></code></pre>
+<pre class="{r}"><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages('L2E')</a></code></pre>
 <p>To install the latest development version from GitHub:</p>
 <pre class="{r}"><code><a href="https://devtools.r-lib.org/reference/remote-reexports.html"># install.packages("devtools")
 devtools::install_github('jocelynchi/L2E-package-demo')</a></code></pre>
@@ -94,19 +98,30 @@ devtools::install_github('jocelynchi/L2E-package-demo')</a></code></pre>
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting Started</h2>
-<p>We’ve included an introductory <a href="https://jocelynchi.github.io/L2E-package-demo/articles/l2e-intro.html">demo</a> on how to use the <code>L2E</code> framework with examples from the accompanying journal manuscript.</p>
+<p>We’ve included an introductory <a href="https://jocelynchi.github.io/L2E-package-demo/articles/l2e-intro.html">demo</a>
+on how to use the <code>L2E</code> framework with examples from the
+accompanying journal manuscripts.</p>
 </div>
-<div id="citing-l2e" class="section level2">
+<div id="citing-the-package" class="section level2">
 <h2 class="hasAnchor">
-<a href="#citing-l2e" class="anchor"></a>Citing L2E</h2>
-<p>The accompanying journal manuscript for <code>L2E</code> can be found at <a href="https://arxiv.org/abs/2010.04133">arXiv:2105.03228</a> and at the <a href="https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts">Journal of Computational and Graphical Statistics</a>. To cite the <code>L2E</code> framework, please use the following BibTeX entry.</p>
-<pre><code>@article{l2e,
-  author = {Jocelyn T. Chi and Eric C. Chi},
-  title = {A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion},
-  journal = {Journal of Computational and Graphical Statistics, In press.},
-  year = {2022},
-  url = {https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts},
-  doi = {10.1080/10618600.2022.2035232},
+<a href="#citing-the-package" class="anchor"></a>Citing the package</h2>
+<p>Please reference the following manuscripts when citing this package.
+Thank you!</p>
+<pre><code>
+@article{L2E-Chi,
+  title={A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion},
+  author={Chi, Jocelyn T. and Chi, Eric C.},
+  journal={Journal of Computational and Graphical Statistics},
+  pages={1--12},
+  year={2022},
+  publisher={Taylor \&amp; Francis}
+}
+</code></pre>
+<pre><code>@article{L2E-Liu,
+  title={A Sharper Computational Tool for L$_2$E  Regression},
+  author={Liu, Xiaoqian and Chi, Eric C. and Lange, Kenneth},
+  journal={arXiv preprint arXiv:2203.02993},
+  year={2022}
 }</code></pre>
 </div>
 </div>
@@ -117,8 +132,6 @@ devtools::install_github('jocelynchi/L2E-package-demo')</a></code></pre>
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=L2E">https://​cloud.r-project.org/​package=L2E</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/jocelynchi/l2e-package-demo/">https://​github.com/​jocelynchi/​l2e-package-demo/​</a>
 </li>
 </ul>
 </div>
@@ -138,9 +151,14 @@ devtools::install_github('jocelynchi/L2E-package-demo')</a></code></pre>
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>
+<a href="https://xiaoqian-liu.github.io/">Xiaoqian Liu</a> <br><small class="roles"> Author, contributor </small>  </li>
+<li>
 <a href="https://jocelynchi.com">Jocelyn Chi</a> <br><small class="roles"> Author, maintainer </small>  </li>
 <li>
+<a href="https://bioscience.ucla.edu/people/kenneth-l-lange/">Kenneth Lange</a> <br><small class="roles"> Author </small>  </li>
+<li>
 <a href="https://ericchi.com/">Eric Chi</a> <br><small class="roles"> Author </small>  </li>
+<li><a href="authors.html">All authors...</a></li>
 </ul>
 </div>
 
@@ -149,7 +167,7 @@ devtools::install_github('jocelynchi/L2E-package-demo')</a></code></pre>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://jocelynchi.com">Jocelyn Chi</a>, <a href="https://ericchi.com/">Eric Chi</a>.</p>
+  <p>Developed by <a href="https://xiaoqian-liu.github.io/">Xiaoqian Liu</a>, <a href="https://jocelynchi.com">Jocelyn Chi</a>, <a href="https://bioscience.ucla.edu/people/kenneth-l-lange/">Kenneth Lange</a>, <a href="https://ericchi.com/">Eric Chi</a>.</p>
 </div>
 
 <div class="pkgdown">

@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_beta_qr.R
 \name{update_beta_qr}
 \alias{update_beta_qr}
-\title{Beta update in LTE multivariate regression}
+\title{Beta update in L2E multivariate regression - PG}
 \usage{
 update_beta_qr(y, X, QRF, tau, b, max_iter = 100, tol = 1e-04)
 }
@@ -25,5 +25,5 @@ update_beta_qr(y, X, QRF, tau, b, max_iter = 100, tol = 1e-04)
 Returns a list object containing the new estimate for beta (vector) and the number of iterations (scalar) the update step utilized
 }
 \description{
-\code{update_beta_qr} Function for updating beta in LTE multivariate regression via a QR solve
+\code{update_beta_qr} updates beta for L2E multivariate regression via a QR solve
 }

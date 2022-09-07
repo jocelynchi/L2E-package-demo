@@ -2,41 +2,47 @@
 % Please edit documentation in R/l2e_regression.R
 \name{l2e_regression}
 \alias{l2e_regression}
-\title{LTE multivariate regression}
+\title{L2E multivariate regression - PG}
 \usage{
-l2e_regression(y, X, tau, b, max_iter = 100, tol = 1e-04)
+l2e_regression(y, X, b, tau, max_iter = 100, tol = 1e-04, Show.Time = TRUE)
 }
 \arguments{
 \item{y}{Response vector}
 
 \item{X}{Design matrix}
 
-\item{tau}{Initial precision estimate}
-
 \item{b}{Initial vector of regression coefficients}
+
+\item{tau}{Initial precision estimate}
 
 \item{max_iter}{Maximum number of iterations}
 
 \item{tol}{Relative tolerance}
+
+\item{Show.Time}{Report the computing time}
 }
 \value{
-Returns a list object containing the estimates for beta (vector) and tau (scalar)
+Returns a list object containing the estimates for beta (vector) and tau (scalar),
+the number of outer block descent iterations until convergence (scalar),
+and the number of inner iterations per outer iteration for updating beta and tau (vectors)
 }
 \description{
-\code{l2e_regression} Performs L2E regression via inexact coordinate descent
+\code{l2e_regression} performs L2E multivariate regression via block coordinate descent
+with proximal gradient for updating both beta and tau.
 }
 \examples{
-
 # Bank data example
 y <- bank$y
 X <- as.matrix(bank[,1:13])
 X0 <- as.matrix(cbind(rep(1,length(y)), X))
 tauinit <- 1/mad(y)
-binit <- matrix(0, 14, 1)#' 
-sol <- l2e_regression(y, X0, tauinit, binit)
+binit <- matrix(0, 14, 1)
+
+sol <- l2e_regression(y, X0, binit, tauinit)
 r <- y - X0 \%*\% sol$beta
 ix <- which(abs(r) > 3/sol$tau)
 l2e_fit <- X0 \%*\% sol$beta
+
 plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
 points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
 

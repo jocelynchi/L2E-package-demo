@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_beta_convex.R
 \name{update_beta_convex}
 \alias{update_beta_convex}
-\title{Beta update in LTE convex regression}
+\title{Beta update in L2E convex regression - PG}
 \usage{
 update_beta_convex(y, b, tau, max_iter = 100, tol = 1e-04)
 }
@@ -21,5 +21,5 @@ update_beta_convex(y, b, tau, max_iter = 100, tol = 1e-04)
 Returns a list object containing the new estimate for beta (vector) and the number of iterations (scalar) the update step utilized
 }
 \description{
-\code{update_beta_convex} Function for updating beta in LTE convex regression
+\code{update_beta_convex} updates beta for L2E convex regression using PG
 }

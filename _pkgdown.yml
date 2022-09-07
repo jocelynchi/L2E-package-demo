@@ -1,6 +1,12 @@
 authors:
+  Xiaoqian Liu:
+    href: "https://xiaoqian-liu.github.io/"
   Jocelyn Chi:
     href: "https://jocelynchi.com"
+  Lisa Lin:
+    href: ""
+  Kenneth Lange:
+    href: "https://bioscience.ucla.edu/people/kenneth-l-lange/"
   Eric Chi:
     href: "https://ericchi.com/"
 
@@ -9,16 +15,38 @@ reference:
   desc: >
     Examples of robust structured regression problems via the L2 criterion
   contents: 
-  - l2e_regression
-  - l2e_regression_isotonic
-  - l2e_regression_convex
+  - L2E_TF_dist
+  - L2E_TF_lasso
+  - L2E_convex
+  - L2E_isotonic
+  - L2E_multivariate
+  - L2E_sparse_dist
+  - L2E_sparse_ncv
 - title: "Updating beta and tau"
   desc: "Example functions for updating beta and tau for LTE multivariate, isotonic, and convex regression"
   contents:
+  - objective_tau
+  - update_beta_MM_TF
+  - update_beta_MM_convex
+  - update_beta_MM_isotonic
+  - update_beta_MM_ls
+  - update_beta_MM_sparse
+  - update_beta_TF_lasso
+  - update_beta_sparse_ncv
+  - update_eta_bktk 
   - update_beta_qr
   - update_beta_isotonic
   - update_beta_convex
   - update_tau_R
+- title: "Other supporting functions"
+  desc: "Examples of other supporting functions"
+  contents:
+  - objective
+  - CV_L2E_TF_dist
+  - CV_L2E_TF_lasso
+  - CV_L2E_sparse_dist
+  - CV_L2E_sparse_ncv
+  - myGetDkn
 - title: "Example Data"
   desc: "Example data for LTE multivariate regression in the paper"
   contents:

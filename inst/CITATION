@@ -4,9 +4,17 @@ citEntry(
   entry    = "Article",
   title    = "A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion",
   author   = "Jocelyn T. Chi and Eric C. Chi",
-  journal  = "Journal of Computational and Graphical Statistics, In press",
+  journal  = "Journal of Computational and Graphical Statistics",
   year     = "2022",
-  url      = "https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts",
   doi      = "10.1080/10618600.2022.2035232",
-  textVersion = paste("Chi, J. T. & Chi, E. C. (2022). A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion. Journal of Computational and Graphical Statistics, In press.")
+  textVersion = paste("Chi, J. T. & Chi, E. C. (2022). A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion. Journal of Computational and Graphical Statistics.")
+)
+
+citEntry(
+  entry    = "Article",
+  title    = "A Sharper Computational Tool for L$_2$E Regression",
+  author   = "Xiaoqian Liu and Eric C. Chi and Kenneth Lange",
+  journal  = "Technometrics, In press.",
+  year     = "2022+",
+  textVersion = paste("Liu, Xiaoqian, Chi, Eric C., and Lange, Kenneth (2022+). A harper Computational Tool for L$_2$E Regression. Technometrics, In press.")
 )

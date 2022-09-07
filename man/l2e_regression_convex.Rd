@@ -2,29 +2,33 @@
 % Please edit documentation in R/l2e_regression_convex.R
 \name{l2e_regression_convex}
 \alias{l2e_regression_convex}
-\title{LTE convex regression}
+\title{L2E convex regression - PG}
 \usage{
-l2e_regression_convex(y, b, tau, max_iter = 100, tol = 1e-04)
+l2e_regression_convex(y, b, tau, max_iter = 100, tol = 1e-04, Show.Time = TRUE)
 }
 \arguments{
-\item{y}{response}
+\item{y}{Response vector}
 
-\item{b}{initial vector of regression coefficients}
+\item{b}{Initial vector of regression coefficients}
 
-\item{tau}{initial precision estimate}
+\item{tau}{Initial precision estimate}
 
-\item{max_iter}{maximum number of iterations}
+\item{max_iter}{Maximum number of iterations}
 
-\item{tol}{relative tolerance}
+\item{tol}{Relative tolerance}
+
+\item{Show.Time}{Report the computing time}
 }
 \value{
-Returns a list object containing the estimates for beta (vector) and tau (scalar)
+Returns a list object containing the estimates for beta (vector) and tau (scalar),
+the number of outer block descent iterations until convergence (scalar),
+and the number of inner iterations per outer iteration for updating beta and tau (vectors)
 }
 \description{
-\code{l2e_regression_convex} Performs robust convex regrsesion using the L2 criterion
+\code{l2e_regression_convex} performs L2E convex regression via block coordinate descent
+with proximal gradient for updating both beta and tau.
 }
 \examples{
-
 set.seed(12345)
 n <- 200
 tau <- 1
@@ -33,34 +37,34 @@ f <- x^4 + x
 y <- f + (1/tau) * rnorm(n)
 
 ## Clean data example
-plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5)
-lines(x, f, col='blue', lwd=3)
-
-tau <- 1
-b <- y
-sol <- l2e_regression_convex(y,b,tau)
-
-plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5)
-lines(x, f, col='blue', lwd=3)
-cvx <- fitted(cobs::conreg(y, convex=TRUE))
-lines(x, cvx, col='red', lwd=3)
-lines(x, sol$beta, col='green', lwd=3)
-
-## Contaminated data example
-ix <- 0:9
-y[45 + ix] <- 14 + rnorm(10)
-
-plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5)
-lines(x, f, col='blue', lwd=3)
+plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+lines(x, f, lwd=3)
 
 tau <- 1
 b <- y
 sol <- l2e_regression_convex(y, b, tau)
 
-plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5)
-lines(x, f, col='blue', lwd=3)
+plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+lines(x, f, lwd=3)
 cvx <- fitted(cobs::conreg(y, convex=TRUE))
-lines(x, cvx, col='red', lwd=3)
-lines(x, sol$beta, col='green', lwd=3)
+lines(x, cvx, col='blue', lwd=3)
+lines(x, sol$beta, col='dark green', lwd=3)
+
+## Contaminated data example
+ix <- 0:9
+y[45 + ix] <- 14 + rnorm(10)
+
+plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+lines(x, f, lwd=3)
+
+tau <- 1
+b <- y
+sol <- l2e_regression_convex(y, b, tau)
+
+plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+lines(x, f, lwd=3)
+cvx <- fitted(cobs::conreg(y, convex=TRUE))
+lines(x, cvx, col='blue', lwd=3)
+lines(x, sol$beta, col='dark green', lwd=3)
 
 }

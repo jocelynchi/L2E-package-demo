@@ -2,7 +2,7 @@
 % Please edit documentation in R/update_beta_isotonic.R
 \name{update_beta_isotonic}
 \alias{update_beta_isotonic}
-\title{Beta update in LTE isotonic regression}
+\title{Beta update in L2E isotonic regression - PG}
 \usage{
 update_beta_isotonic(y, b, tau, max_iter = 100, tol = 1e-04)
 }
@@ -21,5 +21,5 @@ update_beta_isotonic(y, b, tau, max_iter = 100, tol = 1e-04)
 Returns a list object containing the new estimate for beta (vector) and the number of iterations (scalar) the update step utilized
 }
 \description{
-\code{update_beta_isotonic} Function for updating beta in LTE isotonic regression
+\code{update_beta_isotonic} updates beta for L2E isotonic regression using PG
 }

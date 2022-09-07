@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">L2E</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0</span>
       </span>
     </div>
 
@@ -94,18 +94,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/l2e-intro.html">Introduction to the L2E Package</a>
+      <a href="../articles/l2e-intro.html">Introduction to the L2E Package (version 2.0)</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/jocelynchi/l2e-package-demo/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -134,7 +129,8 @@
       <tr>
         <th colspan="2">
           <h2 id="section-l-e-examples" class="hasAnchor"><a href="#section-l-e-examples" class="anchor"></a>L2E Examples</h2>
-          <p class="section-desc"><p>Examples of robust structured regression problems via the L2 criterion</p></p>
+          <p class="section-desc"><p>Examples of robust structured regression problems via the L2
+criterion</p></p>
         </th>
       </tr>
       
@@ -145,27 +141,52 @@
       <tr>
         
         <td>
-          <p><code><a href="l2e_regression.html">l2e_regression()</a></code> </p>
+          <p><code><a href="L2E_TF_dist.html">L2E_TF_dist()</a></code> </p>
         </td>
-        <td><p>LTE multivariate regression</p></td>
+        <td><p>Solution path of the L2E trend filtering regression with distance penalization</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="l2e_regression_isotonic.html">l2e_regression_isotonic()</a></code> </p>
+          <p><code><a href="L2E_TF_lasso.html">L2E_TF_lasso()</a></code> </p>
         </td>
-        <td><p>LTE isotonic regression</p></td>
+        <td><p>Solution path of the L2E trend filtering regression with Lasso</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="l2e_regression_convex.html">l2e_regression_convex()</a></code> </p>
+          <p><code><a href="L2E_convex.html">L2E_convex()</a></code> </p>
         </td>
-        <td><p>LTE convex regression</p></td>
+        <td><p>L2E convex regression</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="L2E_isotonic.html">L2E_isotonic()</a></code> </p>
+        </td>
+        <td><p>L2E isotonic regression</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="L2E_multivariate.html">L2E_multivariate()</a></code> </p>
+        </td>
+        <td><p>L2E multivariate regression</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="L2E_sparse_dist.html">L2E_sparse_dist()</a></code> </p>
+        </td>
+        <td><p>Solution path of L2E sparse regression with distance penalization</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="L2E_sparse_ncv.html">L2E_sparse_ncv()</a></code> </p>
+        </td>
+        <td><p>Solution path of L2E sparse regression with existing penalization methods</p></td>
       </tr>
     </tbody><tbody>
       <tr>
         <th colspan="2">
           <h2 id="section-updating-beta-and-tau" class="hasAnchor"><a href="#section-updating-beta-and-tau" class="anchor"></a>Updating beta and tau</h2>
-          <p class="section-desc"><p>Example functions for updating beta and tau for LTE multivariate, isotonic, and convex regression</p></p>
+          <p class="section-desc"><p>Example functions for updating beta and tau for LTE multivariate,
+isotonic, and convex regression</p></p>
         </th>
       </tr>
       
@@ -176,27 +197,130 @@
       <tr>
         
         <td>
+          <p><code><a href="objective_tau.html">objective_tau()</a></code> </p>
+        </td>
+        <td><p>Objective function of the L2E regression - tau</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_MM_TF.html">update_beta_MM_TF()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E trend filtering regression - MM</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_MM_convex.html">update_beta_MM_convex()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E convex regression - MM</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_MM_isotonic.html">update_beta_MM_isotonic()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E isotonic regression - MM</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_MM_ls.html">update_beta_MM_ls()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E multivariate regression - MM</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_MM_sparse.html">update_beta_MM_sparse()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E sparse regression - MM</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_TF_lasso.html">update_beta_TF_lasso()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E trend filtering regression using Lasso</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_beta_sparse_ncv.html">update_beta_sparse_ncv()</a></code> </p>
+        </td>
+        <td><p>Beta update in L2E sparse regression - NCV</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update_eta_bktk.html">update_eta_bktk()</a></code> </p>
+        </td>
+        <td><p>Eta update using Newton's method with backtracking</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="update_beta_qr.html">update_beta_qr()</a></code> </p>
         </td>
-        <td><p>Beta update in LTE multivariate regression</p></td>
+        <td><p>Beta update in L2E multivariate regression - PG</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="update_beta_isotonic.html">update_beta_isotonic()</a></code> </p>
         </td>
-        <td><p>Beta update in LTE isotonic regression</p></td>
+        <td><p>Beta update in L2E isotonic regression - PG</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="update_beta_convex.html">update_beta_convex()</a></code> </p>
         </td>
-        <td><p>Beta update in LTE convex regression</p></td>
+        <td><p>Beta update in L2E convex regression - PG</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="update_tau_R.html">update_tau_R()</a></code> </p>
         </td>
         <td><p>Tau update function</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-other-supporting-functions" class="hasAnchor"><a href="#section-other-supporting-functions" class="anchor"></a>Other supporting functions</h2>
+          <p class="section-desc"><p>Examples of other supporting functions</p></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="objective.html">objective()</a></code> </p>
+        </td>
+        <td><p>Objective function of the L2E regression - eta</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="CV_L2E_TF_dist.html">CV_L2E_TF_dist()</a></code> </p>
+        </td>
+        <td><p>Cross validation for L2E trend filtering regression with distance penalization</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="CV_L2E_TF_lasso.html">CV_L2E_TF_lasso()</a></code> </p>
+        </td>
+        <td><p>Cross validation for L2E trend filtering regression with Lasso penalization</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="CV_L2E_sparse_dist.html">CV_L2E_sparse_dist()</a></code> </p>
+        </td>
+        <td><p>Cross validation for L2E sparse regression with distance penalization</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="CV_L2E_sparse_ncv.html">CV_L2E_sparse_ncv()</a></code> </p>
+        </td>
+        <td><p>Cross validation for L2E sparse regression with existing penalization methods</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="myGetDkn.html">myGetDkn()</a></code> </p>
+        </td>
+        <td><p>Compute kth order differencing matrix</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -231,7 +355,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://jocelynchi.com'>Jocelyn Chi</a>, <a href='https://ericchi.com/'>Eric Chi</a>.</p>
+  <p>Developed by <a href='https://xiaoqian-liu.github.io/'>Xiaoqian Liu</a>, <a href='https://jocelynchi.com'>Jocelyn Chi</a>, <a href='https://bioscience.ucla.edu/people/kenneth-l-lange/'>Kenneth Lange</a>, <a href='https://ericchi.com/'>Eric Chi</a>.</p>
 </div>
 
 <div class="pkgdown">

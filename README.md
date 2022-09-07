@@ -1,13 +1,14 @@
 # Computational Framework for L$_{2}$E Structured Regression Problems
 
-We introduce a user-friendly computational framework for implementing robust versions of a wide variety of structured regression methods with the L$_{2}$ criterion.  In addition to introducing an algorithm for performing L$_{2}$E regression, our framework enables robust regression with the L$_{2}$ criterion for additional structural constraints, works without requiring complex tuning procedures on the precision parameter, can be used to identify heterogeneous subpopulations, and can incorporate readily available non-robust structured regression solvers.  We provide convergence guarantees for the framework and demonstrate its flexibility with some examples.  Supplementary materials for this article are available online.
+The `L2E` package (version 2.0) implements the computational framework for L$_2$E regression in Liu, Chi, and Lange (2022+), which was built on the previous work in Chi and Chi (2022). Both works employ the block coordinate descent  strategy to solve a nonconvex optimization problem but utilize different methods for the inner block descent updates. We refer to the method in Liu, Chi, and Lange (2022+) as "MM" and the one in Chi and Chi (2022) as "PG" in our package. This package provides code to replicate some examples illustrating the usage of the frameworks in both manuscripts.
+
 
 ## Installation
 
 To install the latest stable version from CRAN:
 
   ```{r}
-install.packages('L2E-package-demo')
+install.packages('L2E')
 ```
 
 To install the latest development version from GitHub:
@@ -19,20 +20,30 @@ devtools::install_github('jocelynchi/L2E-package-demo')
 
 ## Getting Started
 
-We've included an introductory [demo](https://jocelynchi.github.io/L2E-package-demo/articles/l2e-intro.html) on how to use the `L2E` framework with examples from the accompanying journal manuscript.
+We've included an introductory [demo](https://jocelynchi.github.io/L2E-package-demo/articles/l2e-intro.html) on how to use the `L2E` framework with examples from the accompanying journal manuscripts.
 
-## Citing L2E
+## Citing the package
 
-The accompanying journal manuscript for `L2E` can be found at [arXiv:2105.03228](https://arxiv.org/abs/2010.04133) and at the [Journal of Computational and Graphical Statistics](https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts).  To cite the `L2E` framework, please use the following BibTeX entry.
+Please reference the following manuscripts when citing this package.  Thank you!
 
 ```
-@article{l2e,
-  author = {Jocelyn T. Chi and Eric C. Chi},
-  title = {A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion},
-  journal = {Journal of Computational and Graphical Statistics, In press.},
-  year = {2022},
-  url = {https://amstat.tandfonline.com/doi/full/10.1080/10618600.2022.2035232#.Yfr47S-B0Ts},
-  doi = {10.1080/10618600.2022.2035232},
+
+@article{L2E-Chi,
+  title={A User-Friendly Computational Framework for Robust Structured Regression with the L$_2$ Criterion},
+  author={Chi, Jocelyn T. and Chi, Eric C.},
+  journal={Journal of Computational and Graphical Statistics},
+  pages={1--12},
+  year={2022},
+  publisher={Taylor \& Francis}
+}
+
+```
+
+```
+@article{L2E-Liu,
+  title={A Sharper Computational Tool for L$_2$E  Regression},
+  author={Liu, Xiaoqian and Chi, Eric C. and Lange, Kenneth},
+  journal={arXiv preprint arXiv:2203.02993},
+  year={2022}
 }
 ```
-

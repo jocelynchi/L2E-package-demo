@@ -21,5 +21,5 @@ update_tau_R(r, tau, sd_y, max_iter = 100, tol = 1e-10)
 Returns a list object containing the new estimate for tau (scalar) and the number of iterations (scalar) the update step utilized
 }
 \description{
-\code{update_tau_R} Function for updating tau
+\code{update_tau_R} updates the precision parameter tau
 }

@@ -1,7 +1,7 @@
-pandoc: 2.11.4
+pandoc: '2.18'
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   l2e-intro: l2e-intro.html
-last_built: 2022-02-04T17:53Z
+last_built: 2022-09-07T21:46Z
 

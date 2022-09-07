@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>LTE multivariate regression — l2e_regression • L2E</title>
+<title>L2E multivariate regression - PG — l2e_regression • L2E</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="LTE multivariate regression — l2e_regression" />
-<meta property="og:description" content="l2e_regression Performs L2E regression via inexact coordinate descent" />
+<meta property="og:title" content="L2E multivariate regression - PG — l2e_regression" />
+<meta property="og:description" content="l2e_regression performs L2E multivariate regression via block coordinate descent
+with proximal gradient for updating both beta and tau." />
 
 
 
@@ -72,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">L2E</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0</span>
       </span>
     </div>
 
@@ -95,18 +96,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/l2e-intro.html">Introduction to the L2E Package</a>
+      <a href="../articles/l2e-intro.html">Introduction to the L2E Package (version 2.0)</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/jocelynchi/l2e-package-demo/">
-    <span class="fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -120,16 +116,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>LTE multivariate regression</h1>
-    <small class="dont-index">Source: <a href='https://github.com/jocelynchi/l2e-package-demo/blob/master/R/l2e_regression.R'><code>R/l2e_regression.R</code></a></small>
+    <h1>L2E multivariate regression - PG</h1>
+    
     <div class="hidden name"><code>l2e_regression.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>l2e_regression</code> Performs L2E regression via inexact coordinate descent</p>
+    <p><code>l2e_regression</code> performs L2E multivariate regression via block coordinate descent
+with proximal gradient for updating both beta and tau.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>l2e_regression</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>X</span>, <span class='va'>tau</span>, <span class='va'>b</span>, max_iter <span class='op'>=</span> <span class='fl'>100</span>, tol <span class='op'>=</span> <span class='fl'>1e-04</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>l2e_regression</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>X</span>, <span class='va'>b</span>, <span class='va'>tau</span>, max_iter <span class='op'>=</span> <span class='fl'>100</span>, tol <span class='op'>=</span> <span class='fl'>1e-04</span>, Show.Time <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,12 +140,12 @@
       <td><p>Design matrix</p></td>
     </tr>
     <tr>
-      <th>tau</th>
-      <td><p>Initial precision estimate</p></td>
-    </tr>
-    <tr>
       <th>b</th>
       <td><p>Initial vector of regression coefficients</p></td>
+    </tr>
+    <tr>
+      <th>tau</th>
+      <td><p>Initial precision estimate</p></td>
     </tr>
     <tr>
       <th>max_iter</th>
@@ -158,24 +155,32 @@
       <th>tol</th>
       <td><p>Relative tolerance</p></td>
     </tr>
+    <tr>
+      <th>Show.Time</th>
+      <td><p>Report the computing time</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns a list object containing the estimates for beta (vector) and tau (scalar)</p>
+    <p>Returns a list object containing the estimates for beta (vector) and tau (scalar),
+the number of outer block descent iterations until convergence (scalar),
+and the number of inner iterations per outer iteration for updating beta and tau (vectors)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Bank data example</span>
+    <pre class="examples"><div class='input'><span class='co'># Bank data example</span>
 <span class='va'>y</span> <span class='op'>&lt;-</span> <span class='va'>bank</span><span class='op'>$</span><span class='va'>y</span>
 <span class='va'>X</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>bank</span><span class='op'>[</span>,<span class='fl'>1</span><span class='op'>:</span><span class='fl'>13</span><span class='op'>]</span><span class='op'>)</span>
 <span class='va'>X0</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span><span class='op'>)</span>, <span class='va'>X</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>tauinit</span> <span class='op'>&lt;-</span> <span class='fl'>1</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/stats/mad.html'>mad</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>)</span>
-<span class='va'>binit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>14</span>, <span class='fl'>1</span><span class='op'>)</span><span class='co'>#' </span>
-<span class='va'>sol</span> <span class='op'>&lt;-</span> <span class='fu'>l2e_regression</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>X0</span>, <span class='va'>tauinit</span>, <span class='va'>binit</span><span class='op'>)</span>
-<span class='va'>r</span> <span class='op'>&lt;-</span> <span class='va'>y</span> <span class='op'>-</span> <span class='va'>X0</span> <span class='op'>%*%</span> <span class='va'>sol</span><span class='op'>$</span><span class='va'>beta</span>
+<span class='va'>binit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>14</span>, <span class='fl'>1</span><span class='op'>)</span>
+
+<span class='va'>sol</span> <span class='op'>&lt;-</span> <span class='fu'>l2e_regression</span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>X0</span>, <span class='va'>binit</span>, <span class='va'>tauinit</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;    user  system elapsed 
+#&gt;   0.018   0.000   0.018 </div><div class='input'><span class='va'>r</span> <span class='op'>&lt;-</span> <span class='va'>y</span> <span class='op'>-</span> <span class='va'>X0</span> <span class='op'>%*%</span> <span class='va'>sol</span><span class='op'>$</span><span class='va'>beta</span>
 <span class='va'>ix</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='va'>r</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>3</span><span class='op'>/</span><span class='va'>sol</span><span class='op'>$</span><span class='va'>tau</span><span class='op'>)</span>
 <span class='va'>l2e_fit</span> <span class='op'>&lt;-</span> <span class='va'>X0</span> <span class='op'>%*%</span> <span class='va'>sol</span><span class='op'>$</span><span class='va'>beta</span>
+
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>y</span>, <span class='va'>l2e_fit</span>, ylab<span class='op'>=</span><span class='st'>'Predicted values'</span>, pch<span class='op'>=</span><span class='fl'>16</span>, cex<span class='op'>=</span><span class='fl'>0.8</span><span class='op'>)</span>
 </div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>[</span><span class='va'>ix</span><span class='op'>]</span>, <span class='va'>l2e_fit</span><span class='op'>[</span><span class='va'>ix</span><span class='op'>]</span>, pch<span class='op'>=</span><span class='fl'>16</span>, col<span class='op'>=</span><span class='st'>'blue'</span>, cex<span class='op'>=</span><span class='fl'>0.8</span><span class='op'>)</span>
 </div><div class='img'><img src='l2e_regression-1.png' alt='' width='700' height='433' /></div><div class='input'>
@@ -191,7 +196,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='https://jocelynchi.com'>Jocelyn Chi</a>, <a href='https://ericchi.com/'>Eric Chi</a>.</p>
+  <p>Developed by <a href='https://xiaoqian-liu.github.io/'>Xiaoqian Liu</a>, <a href='https://jocelynchi.com'>Jocelyn Chi</a>, <a href='https://bioscience.ucla.edu/people/kenneth-l-lange/'>Kenneth Lange</a>, <a href='https://ericchi.com/'>Eric Chi</a>.</p>
 </div>
 
 <div class="pkgdown">
