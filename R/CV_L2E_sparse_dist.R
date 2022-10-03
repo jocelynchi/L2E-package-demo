@@ -35,32 +35,34 @@
 #'
 #' ## Clean Data
 #' k <- c(6,5,4)
-#' cv <- CV_L2E_sparse_dist(y=y, X=X, kSeq=k, nfolds=2, seed=1234)
-#' (k_min <- cv$k.min) ## selected number of nonzero entries
+#' # (not run)
+#' # cv <- CV_L2E_sparse_dist(y=y, X=X, kSeq=k, nfolds=2, seed=1234)
+#' # (k_min <- cv$k.min) ## selected number of nonzero entries
 #'
-#' sol <- L2E_sparse_dist(y=y, X=X, kSeq=k_min)
-#' r <- y - X %*% sol$Beta
-#' ix <- which(abs(r) > 3/sol$Tau)
-#' l2e_fit <- X %*% sol$Beta
+#' # sol <- L2E_sparse_dist(y=y, X=X, kSeq=k_min)
+#' # r <- y - X %*% sol$Beta
+#' # ix <- which(abs(r) > 3/sol$Tau)
+#' # l2e_fit <- X %*% sol$Beta
 #'
-#' plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
-#' points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
+#' # plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
+#' # points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
 #'
 #' ## Contaminated Data
 #' i <- 1:5
 #' y[i] <- 2 + y0[i]
 #' X[i,] <- 2 + X0[i,]
 #'
-#' cv <- CV_L2E_sparse_dist(y=y, X=X, kSeq=k, nfolds=2, seed=1234)
-#' (k_min <- cv$k.min) ## selected number of nonzero entries
+#' # (not run)
+#' # cv <- CV_L2E_sparse_dist(y=y, X=X, kSeq=k, nfolds=2, seed=1234)
+#' # (k_min <- cv$k.min) ## selected number of nonzero entries
 #'
-#' sol <- L2E_sparse_dist(y=y, X=X, kSeq=k_min)
-#' r <- y - X %*% sol$Beta
-#' ix <- which(abs(r) > 3/sol$Tau)
-#' l2e_fit <- X %*% sol$Beta
+#' # sol <- L2E_sparse_dist(y=y, X=X, kSeq=k_min)
+#' # r <- y - X %*% sol$Beta
+#' # ix <- which(abs(r) > 3/sol$Tau)
+#' # l2e_fit <- X %*% sol$Beta
 #'
-#' plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
-#' points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
+#' # plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
+#' # points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
 #'
 CV_L2E_sparse_dist <- function(y, X, beta0, tau0, kSeq, rhoSeq,  nfolds=5, seed=1234, method="median",
                              max_iter=1e2, tol=1e-4, trace=TRUE) {

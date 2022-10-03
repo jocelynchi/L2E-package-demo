@@ -64,13 +64,14 @@ lines(x, f, lwd=3)
 D <- myGetDkn(1, n)
 k <- c(4,3,2)
 rho <- 10^8
-sol <- L2E_TF_dist(y=y, D=D, kSeq=k, rhoSeq=rho)
+# (not run)
+# sol <- L2E_TF_dist(y=y, D=D, kSeq=k, rhoSeq=rho)
 
-plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
-lines(x, f, lwd=3)
-lines(x, sol$Beta[,3], col='blue', lwd=3) ## k=2
-lines(x, sol$Beta[,2], col='red', lwd=3) ## k=3
-lines(x, sol$Beta[,1], col='dark green', lwd=3) ## k=4
+# plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+# lines(x, f, lwd=3)
+# lines(x, sol$Beta[,3], col='blue', lwd=3) ## k=2
+# lines(x, sol$Beta[,2], col='red', lwd=3) ## k=3
+# lines(x, sol$Beta[,1], col='dark green', lwd=3) ## k=4
 
 ## Contaminated Data
 ix <- sample(1:n, 10)
@@ -79,12 +80,13 @@ y[ix] <- y0[ix] + 2
 plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
 lines(x, f, lwd=3)
 
-sol <- L2E_TF_dist(y=y, D=D, kSeq=k, rhoSeq=rho)
+# (not run)
+# sol <- L2E_TF_dist(y=y, D=D, kSeq=k, rhoSeq=rho)
 
-plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
-lines(x, f, lwd=3)
-lines(x, sol$Beta[,3], col='blue', lwd=3) ## k=2
-lines(x, sol$Beta[,2], col='red', lwd=3) ## k=3
-lines(x, sol$Beta[,1], col='dark green', lwd=3) ## k=4
+# plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+# lines(x, f, lwd=3)
+# lines(x, sol$Beta[,3], col='blue', lwd=3) ## k=2
+# lines(x, sol$Beta[,2], col='red', lwd=3) ## k=3
+# lines(x, sol$Beta[,1], col='dark green', lwd=3) ## k=4
 
 }

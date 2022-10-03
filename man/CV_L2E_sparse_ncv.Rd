@@ -67,31 +67,33 @@ y <- y0 <- X0 \%*\% f + (1/tau)*rnorm(n)
 
 ## Clean Data
 lambda <- 10^seq(-1, -2, length.out=20)
-cv <- CV_L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda, penalty="SCAD", seed=1234, nfolds=2)
-(lambda_min <- cv$lambda.min)
+# (not run)
+# cv <- CV_L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda, penalty="SCAD", seed=1234, nfolds=2)
+# (lambda_min <- cv$lambda.min)
 
-sol <- L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda_min, penalty="SCAD")
-r <- y - X \%*\% sol$Beta
-ix <- which(abs(r) > 3/sol$Tau)
-l2e_fit <- X \%*\% sol$Beta
+# sol <- L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda_min, penalty="SCAD")
+# r <- y - X \%*\% sol$Beta
+# ix <- which(abs(r) > 3/sol$Tau)
+# l2e_fit <- X \%*\% sol$Beta
 
-plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
-points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
+# plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
+# points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
 
 ## Contaminated Data
 i <- 1:5
 y[i] <- 2 + y0[i]
 X[i,] <- 2 + X0[i,]
 
-cv <- CV_L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda, penalty="SCAD", seed=1234, nfolds=2)
-(lambda_min <- cv$lambda.min)
+# (not run)
+# cv <- CV_L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda, penalty="SCAD", seed=1234, nfolds=2)
+# (lambda_min <- cv$lambda.min)
 
-sol <- L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda_min, penalty="SCAD")
-r <- y - X \%*\% sol$Beta
-ix <- which(abs(r) > 3/sol$Tau)
-l2e_fit <- X \%*\% sol$Beta
+# sol <- L2E_sparse_ncv(y=y, X=X, lambdaSeq=lambda_min, penalty="SCAD")
+# r <- y - X \%*\% sol$Beta
+# ix <- which(abs(r) > 3/sol$Tau)
+# l2e_fit <- X \%*\% sol$Beta
 
-plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
-points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
+# plot(y, l2e_fit, ylab='Predicted values', pch=16, cex=0.8)
+# points(y[ix], l2e_fit[ix], pch=16, col='blue', cex=0.8)
 
 }

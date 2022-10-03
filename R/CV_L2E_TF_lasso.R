@@ -37,14 +37,15 @@
 #'
 #' D <- myGetDkn(1, n)
 #' lambda <- 10^seq(-1, -2, length.out=20)
-#' cv <- CV_L2E_TF_lasso(y=y0, D=D, lambdaSeq=lambda, nfolds=2, seed=1234)
-#' (lambda_min <- cv$lambda.min)
+#' # (not run)
+#' # cv <- CV_L2E_TF_lasso(y=y0, D=D, lambdaSeq=lambda, nfolds=2, seed=1234)
+#' # (lambda_min <- cv$lambda.min)
 #'
-#' sol <- L2E_TF_lasso(y=y0, D=D, lambdaSeq=lambda_min)
+#' # sol <- L2E_TF_lasso(y=y0, D=D, lambdaSeq=lambda_min)
 #'
-#' plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
-#' lines(x, f, lwd=3)
-#' lines(x, sol$Beta, col='blue', lwd=3)
+#' # plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+#' # lines(x, f, lwd=3)
+#' # lines(x, sol$Beta, col='blue', lwd=3)
 #'
 #' ## Contaminated Data
 #' ix <- sample(1:n, 10)
@@ -53,14 +54,15 @@
 #' plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
 #' lines(x, f, lwd=3)
 #'
-#' cv <- CV_L2E_TF_lasso(y=y, D=D, lambdaSeq=lambda, nfolds=2, seed=1234)
-#' (lambda_min <- cv$lambda.min)
+#' # (not run)
+#' # cv <- CV_L2E_TF_lasso(y=y, D=D, lambdaSeq=lambda, nfolds=2, seed=1234)
+#' # (lambda_min <- cv$lambda.min)
 #'
-#' sol <- L2E_TF_lasso(y=y, D=D, lambdaSeq=lambda_min)
+#' # sol <- L2E_TF_lasso(y=y, D=D, lambdaSeq=lambda_min)
 #'
-#' plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
-#' lines(x, f, lwd=3)
-#' lines(x, sol$Beta, col='blue', lwd=3)
+#' # plot(x, y, pch=16, cex.lab=1.5, cex.axis=1.5, cex.sub=1.5, col='gray')
+#' # lines(x, f, lwd=3)
+#' # lines(x, sol$Beta, col='blue', lwd=3)
 #'
 CV_L2E_TF_lasso <- function(y,X,beta0,tau0,D,lambdaSeq,nfolds=5,seed=1234,method="median",
                             max_iter=1e2,tol=1e-4,trace=TRUE) {

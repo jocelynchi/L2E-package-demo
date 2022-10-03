@@ -5,7 +5,6 @@
 #' 
 #' @references Marco Riani, Andrea Cerioli, and Anthony C. Atkinson (2014).
 #' Monitoring robust regression. Electronic Journal of Statistics, Volume 8, 646-677.
-#' \url{https://projecteuclid.org/euclid.ejs/1400592267}.
 #' 
 #' @docType data
 #' @keywords datasets
